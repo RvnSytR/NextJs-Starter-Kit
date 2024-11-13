@@ -141,3 +141,8 @@
     @apply w-fit cursor-pointer text-muted-foreground underline-offset-4 hover:text-foreground hover:underline;
   }
 } */
+@layer base {
+  :root {
+    --radius: 0.5rem
+  }
+}
