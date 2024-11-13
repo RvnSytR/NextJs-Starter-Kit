@@ -5,8 +5,8 @@ import "@/styles/globals.css";
 // import { AuthCheck } from "@/components/layout/auth";
 // import { ValidateSession } from "@/server/action";
 
-// import { ThemeProvider } from "next-themes";
-// import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,17 +28,16 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fontSans.variable}>
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <AuthCheck isValid={isValid}>{children}</AuthCheck>
+          {/* <AuthCheck isValid={isValid}>{children}</AuthCheck> */}
+          {children}
           <Toaster position="top-center" closeButton />
-        </ThemeProvider> */}
-
-        {children}
+        </ThemeProvider>
       </body>
     </html>
   );
