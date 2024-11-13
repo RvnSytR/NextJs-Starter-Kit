@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Package Install Guide (NPM)
 
-## Getting Started
+### Tailwind Animated
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+npm install -D tailwindcss-animated
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Config
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+// tailwind.config.ts
+plugins: [require("tailwindcss-animated")],
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### Prettier
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm i prettier
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Prettier Plugin Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm i prettier-plugin-tailwindcss
+```
 
-## Deploy on Vercel
+#### Config
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+// .prettierrc
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Format and Check All Files with Prettier
+
+```sh
+npx prettier . --write
+npx prettier . --check
+```
+
+---
+
+### ShadCN
+
+```sh
+npx shadcn@latest init
+```
+
+#### Adding Component
+
+```sh
+npx shadcn@latest add
+```
+
+#### Next Themes
+
+```sh
+npm install next-themes
+```
+
+#### Theme Provider
+
+```
+// components/theme-provider.tsx
+
+"use client"
+
+import * as React from "react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+
+export function ThemeProvider({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+}
+
+```
+
+---
+
+### Drizzle ORM
+
+```sh
+npm i drizzle-orm mysql2 dotenv
+npm i -D drizzle-kit tsx
+```
+
+---
+
+### Auth JS
+
+```
+npm install next-auth@beta
+```
+
+#### Config
+
+```
+// lib/auth.ts
+import NextAuth from "next-auth"
+
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [],
+})
+```
+
+```
+// api/auth/[...nextauth]/route.ts
+export { GET, POST } from "@/lib/auth";
+export const runtime = "edge";
+```
+
+---
+
+### S3 (AWS SDK)
+
+```
+npm i @aws-sdk/client-s3
+npm i @aws-sdk/s3-request-presigner
+```
+
+---
+
+## Environment
+
+```sh
+MYSQL_HOST=host
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=db
+
+AUTH_SECRET=secretkey
+
+NEVA_ACCESS_KEY=nevaaccesskey
+NEVA_SECRET_KEY=necasecretkey
+NEVA_BUCKET_NAME=nevabucketname
+NEVA_S3_ENDPOINT=nevas3endpoint
+```
