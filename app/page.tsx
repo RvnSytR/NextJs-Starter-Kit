@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div className="min-h-dvh flex justify-center items-center">
+    <div className="flex min-h-dvh items-center justify-center">
       <p>Hello world</p>
     </div>
   );
