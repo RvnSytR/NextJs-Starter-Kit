@@ -6,7 +6,7 @@ List the main technologies used in this project, including:
 - **Language:** Typescript
 - **Styling:**
   - Tailwind CSS
-  - ShadCn (MagicUI Ready)
+  - ShadCn
 - **Database:**
   - Mysql manage using Drizzle ORM
 
