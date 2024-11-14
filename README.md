@@ -1,4 +1,18 @@
-## Package Install Guide (NPM)
+## Tech Stack
+
+List the main technologies used in this project, including:
+
+- **Framework:** Nextjs 15 with React 19
+- **Language:** Typescript
+- **Styling:**
+  - Tailwind CSS
+  - ShadCn (MagicUI Ready)
+- **Database:**
+  - Mysql manage using Drizzle ORM
+
+## Manual Package Install Guide (NPM)
+
+This guide provides step-by-step instructions for manually installing this package using NPM. Primarily intended for personal reference, it may also be helpful for others setting up the package manually.
 
 ### Sharp
 
@@ -116,6 +130,14 @@ npm i @aws-sdk/s3-request-presigner
 
 ---
 
+### Auth JS
+
+```
+npm install next-auth@beta
+```
+
+---
+
 ## Environment
 
 ```sh
@@ -132,51 +154,6 @@ NEVA_ACCESS_KEY=nevaaccesskey
 NEVA_SECRET_KEY=necasecretkey
 NEVA_BUCKET_NAME=nevabucketname
 NEVA_S3_ENDPOINT=nevas3endpoint
-```
-
----
-
-### Auth JS
-
-```
-npm install next-auth@beta
-```
-
-#### Config
-
-```
-@/lib/auth.ts
-
-import NextAuth from "next-auth"
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [],
-})
-```
-
-```
-@/app/api/auth/[...nextauth]/route.ts
-
-export { GET, POST } from "@/lib/auth";
-export const runtime = "edge";
-```
-
-```
-@/app/login/sign.ts
-
-"use server";
-
-import { signIn, signOut } from "@/lib/auth";
-
-export async function LoginHandler(email: string, password: string) {
-  const data = { email: email, password: password, redirect: false };
-  await signIn("credentials", data);
-}
-
-export async function LogoutHandler() {
-  await signOut({ redirect: false });
-}
-
 ```
 
 ---
@@ -223,3 +200,7 @@ export async function GET() {
   }
 }
 ```
+
+## TODO
+
+- Encrypt Password
