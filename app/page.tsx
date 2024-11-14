@@ -9,12 +9,13 @@ export default async function Page() {
       <ThemeToggle />
 
       <p>
-        Want to enter the Protected Route? This ✨ Button ✨ is your ticket!
+        Want to enter the Protected Route? This button below will direct you to
+        go there! 🚀
       </p>
 
       <p>
         But hold on—if you&apos;re not signed in, you&apos;ll need to log in
-        first. No free passes here!
+        first. No free passes here! 🔒
       </p>
 
       <CustomButton customType="nav" variant="outline" href="/protected-route">
