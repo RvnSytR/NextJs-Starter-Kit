@@ -107,33 +107,6 @@ npm i drizzle-zod
 
 ---
 
-### Auth JS
-
-```
-npm install next-auth@beta
-```
-
-#### Config
-
-```
-@/lib/auth.ts
-
-import NextAuth from "next-auth"
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [],
-})
-```
-
-```
-@/app/api/auth/[...nextauth]/route.ts
-
-export { GET, POST } from "@/lib/auth";
-export const runtime = "edge";
-```
-
----
-
 ### S3 (AWS SDK)
 
 ```
@@ -160,6 +133,35 @@ NEVA_SECRET_KEY=necasecretkey
 NEVA_BUCKET_NAME=nevabucketname
 NEVA_S3_ENDPOINT=nevas3endpoint
 ```
+
+---
+
+### Auth JS
+
+```
+npm install next-auth@beta
+```
+
+#### Config
+
+```
+@/lib/auth.ts
+
+import NextAuth from "next-auth"
+
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [],
+})
+```
+
+```
+@/app/api/auth/[...nextauth]/route.ts
+
+export { GET, POST } from "@/lib/auth";
+export const runtime = "edge";
+```
+
+---
 
 ## Testing App
 
