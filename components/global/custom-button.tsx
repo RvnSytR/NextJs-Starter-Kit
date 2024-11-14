@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
-// import { LogoutHandler } from "@/app/login/sign";
+
+import { LogoutHandler } from "@/app/login/sign";
 import { ClientRedirect, ClientRevalidatePath } from "@/server/action";
 import { Delay } from "@/lib/helper";
 
@@ -39,6 +40,9 @@ export function CustomButton({
 }: CustomButtonProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const { size } = props;
+
+  const LOGOUT_TOAST_TEXT = "Berhasil Keluar. Semoga hari Anda menyenangkan!";
+  const LOGOUT_LOAD_TEXT = "Mengakhiri sesi...";
   if (customType === "logout") loadText = "Logging Out...";
 
   const LoaderNode = (): React.ReactNode => {
@@ -71,7 +75,7 @@ export function CustomButton({
 
   const RequiredNode = ({ req }: { req: string[] }): React.ReactNode => {
     return (
-      <div className="border-destructive rounded border p-2">
+      <div className="rounded border border-destructive p-2">
         <p>Custom Button of this type must have these property:</p>
 
         <ol className="flex list-inside list-decimal flex-col">
@@ -86,12 +90,11 @@ export function CustomButton({
   const logoutHandler = async () => {
     setLoading(true);
 
-    // toast.promise(LogoutHandler(), {
-    toast.promise(Delay(2), {
-      loading: "Mengakhiri sesi...",
+    toast.promise(LogoutHandler(), {
+      loading: LOGOUT_LOAD_TEXT,
       success: () => {
         ClientRedirect("/login");
-        return "Berhasil Keluar. Semoga hari Anda menyenangkan!";
+        return LOGOUT_TOAST_TEXT;
       },
       error: (e: Error) => e.message,
     });

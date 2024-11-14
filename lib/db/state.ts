@@ -31,7 +31,7 @@ const user = {
 
   getAll: db.select(getUserParam).from(userSchema).prepare(),
 
-  getByid_user: db
+  getById: db
     .select(getUserParam)
     .from(userSchema)
     .where(sql`${userSchema.id_user} = ${sql.placeholder("id_user")}`)

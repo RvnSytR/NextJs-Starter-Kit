@@ -161,6 +161,24 @@ export { GET, POST } from "@/lib/auth";
 export const runtime = "edge";
 ```
 
+```
+@/app/login/sign.ts
+
+"use server";
+
+import { signIn, signOut } from "@/lib/auth";
+
+export async function LoginHandler(email: string, password: string) {
+  const data = { email: email, password: password, redirect: false };
+  await signIn("credentials", data);
+}
+
+export async function LogoutHandler() {
+  await signOut({ redirect: false });
+}
+
+```
+
 ---
 
 ## Testing App

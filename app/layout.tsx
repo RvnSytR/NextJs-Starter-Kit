@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "@/styles/globals.css";
 
-// import { AuthCheck } from "@/components/layout/auth";
-// import { ValidateSession } from "@/server/action";
-
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -23,8 +20,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const isValid = await ValidateSession();
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fontSans.variable}>
@@ -34,7 +29,6 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <AuthCheck isValid={isValid}>{children}</AuthCheck> */}
           {children}
           <Toaster position="top-center" closeButton />
         </ThemeProvider>
