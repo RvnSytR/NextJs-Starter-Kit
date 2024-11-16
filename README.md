@@ -34,8 +34,6 @@ npm install -D tailwindcss-animated
 plugins: [require("tailwindcss-animated")],
 ```
 
----
-
 ### Prettier
 
 ```sh
@@ -64,8 +62,6 @@ Format and Check All Files with Prettier
 npx prettier . --write
 npx prettier . --check
 ```
-
----
 
 ### ShadCN
 
@@ -104,8 +100,6 @@ export function ThemeProvider({
 
 ```
 
----
-
 ### Drizzle ORM
 
 ```sh
@@ -119,8 +113,6 @@ npm i -D drizzle-kit tsx
 npm i drizzle-zod
 ```
 
----
-
 ### S3 (AWS SDK)
 
 ```
@@ -128,15 +120,11 @@ npm i @aws-sdk/client-s3
 npm i @aws-sdk/s3-request-presigner
 ```
 
----
-
 ### Auth JS
 
 ```
 npm install next-auth@beta
 ```
-
----
 
 ## Environment
 
@@ -155,8 +143,6 @@ NEVA_SECRET_KEY=necasecretkey
 NEVA_BUCKET_NAME=nevabucketname
 NEVA_S3_ENDPOINT=nevas3endpoint
 ```
-
----
 
 ## Testing App
 
