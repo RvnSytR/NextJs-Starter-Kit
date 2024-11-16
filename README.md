@@ -184,8 +184,8 @@ import { NextResponse } from "next/server";
 import { state } from "@/lib/db/state";
 
 export async function GET() {
-  const email = "2021110073@students.uigm.ac.id";
-  const email2 = "ravenskytd17@gmail.com";
+  const email = "user@gmail.com";
+  const email2 = "admin@gmail.com";
 
   try {
     const res = new Promise((resolve) =>
